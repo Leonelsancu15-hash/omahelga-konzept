@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Oma Helga — Eiswagen-Catering &amp; Eisdiele in Bonn (Konzept-Vorschau)</title>
+<meta name="description" content="Konzept-Vorschau für omahelga.de: Helgas historischer VW-Bulli bringt italienisches Eis, belgische Waffeln und einen prickelnden Sektempfang zu deiner Feier — in Köln, Bonn, Königswinter und Koblenz.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#fff7ee">
+
+<meta property="og:title" content="Oma Helga — Deine Feier. Unser Eiswagen.">
+<meta property="og:description" content="Konzept-Vorschau: Scroll, und Helgas Bulli kommt zu dir.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://leonelsancu15-hash.github.io/mahelga-konzept/assets/img/og-cover.jpg">
+
+<link rel="icon" href="assets/img/oh-icon.png">
+<link rel="apple-touch-icon" href="assets/img/oh-icon.png">
+
+<!-- Schriften und Skripte liegen lokal — keine Google-Fonts-, CDN- oder Tracking-Anfragen. -->
+<link rel="preload" href="fonts/young-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/nunito-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>
+  (function(){var d=document.documentElement;d.classList.add('has-js');
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('has-motion');}})();
+</script>
+</head>
+<body class="is-index">
+
+<div class="veil" id="veil" aria-hidden="true"><img src="assets/img/oh-icon.png" alt="" class="veil-mark"></div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<!-- Konzept-Hinweis: dies ist ein Gestaltungsvorschlag, nicht die offizielle Website -->
+<div class="concept-bar" role="note">
+  <span class="bar-tag">Konzept-Vorschau</span> <span class="bar-text">Unverbindlicher Gestaltungsvorschlag für Oma Helga · nicht die offizielle Website ·</span><span class="bar-short">nicht die offizielle Website ·</span> <a href="https://omahelga.de/" target="_blank" rel="noopener noreferrer">zur aktuellen Seite</a>
+</div>
+
+<!-- ================= NAVIGATION ================= -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="Oma Helga – zur Startseite">
+      <img src="assets/img/oh-logo.png" alt="Oma Helga" class="brand-logo" width="682" height="681">
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Hauptnavigation">
+      <a href="#catering">Catering</a>
+      <a href="#angebot">Angebot</a>
+      <a href="#eisdiele">Eisdiele</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="tel:+4915119321967" class="nav-phone" aria-label="Anrufen: 0151 19321967">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        <span>0151 19321967</span>
+      </a>
+      <a href="#anfrage" class="btn btn-primary nav-cta">Angebot anfordern</a>
+      <button type="button" class="nav-burger" id="navBurger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+
+<!-- ================= BÜHNE: der Film läuft mit dem Scroll ================= -->
+<div class="stage" id="stage" aria-hidden="true">
+  <picture class="stage-poster" id="stagePoster">
+    <source media="(orientation: portrait) and (max-width: 899px)" srcset="assets/film/omahelga-bulli-portrait-poster.jpg">
+    <img src="assets/film/omahelga-bulli-desktop-poster.jpg" alt="" decoding="async" fetchpriority="high">
+  </picture>
+  <video class="stage-film" id="stageFilm" muted playsinline preload="none" disablepictureinpicture disableremoteplayback tabindex="-1"></video>
+  <canvas class="stage-stars" id="stageStars"></canvas>
+  <div class="stage-scrim"></div>
+  <div class="stage-dim" id="stageDim"></div>
+</div>
+
+<!-- Anfahrts-HUD: der Bulli kommt näher, während der Film gescrubbt wird -->
+<div class="print-hud" id="printHud" aria-hidden="true">
+  <span class="hud-label">Anfahrt</span>
+  <span class="hud-layer" id="hudLayer">12,0</span>
+  <span class="hud-total">km</span>
+  <span class="hud-bar"><span class="hud-bar-fill" id="hudFill"></span></span>
+  <span class="hud-meta" id="hudMeta">Helgas Bulli · unterwegs zu dir</span>
+</div>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero cinema" id="top">
+  <div class="hero-content">
+    <p class="eyebrow" data-intro>Eiswagen-Catering · Eisdiele Bonn-Oberkassel</p>
+    <h1 class="hero-title" id="heroTitle">
+      <span class="split" data-split>Deine Feier.</span><br>
+      <span class="split accent" data-split>Unser Eiswagen.</span>
+    </h1>
+    <p class="hero-sub" data-intro>Helgas historischer VW-Bulli bringt italienisches Eis, belgische Waffeln und einen prickelnden Sektempfang direkt zu deinem Event — in Köln, Bonn, Königswinter und Koblenz.</p>
+    <div class="hero-actions" data-intro>
+      <a href="#anfrage" class="btn btn-primary magnetic">Unverbindlich anfragen</a>
+      <a href="#angebot" class="btn btn-outline magnetic">Was aus dem Bulli kommt</a>
+    </div>
+  </div>
+  <div class="hero-foot" data-intro>
+    <p class="hero-tag">So wie bei Oma</p>
+    <p class="scroll-hint"><span class="scroll-hint-line" aria-hidden="true"></span>Scrollen — der Bulli kommt</p>
+  </div>
+</section>
+
+<!-- ================= KAPITEL ÜBER DEM FILM ================= -->
+<section class="chapter cinema" id="kapitel-1" aria-labelledby="k1">
+  <div class="chapter-copy">
+    <p class="eyebrow reveal">Kapitel 01</p>
+    <h2 class="split" data-split id="k1">Alte Liebe rostet nicht.</h2>
+    <p class="reveal">Helgas historischer VW-T3-Bulli ist das rollende Herzstück: Hingucker, Zeitreise und Eistheke in einem — für Hochzeit, Firmenfeier, Sommerfest oder Straßenfest.</p>
+    <ul class="tags reveal" aria-label="Fakten"><li>VW T3 Bulli</li><li>Mobil an jedem Ort</li><li>Für Jung bis Alt</li></ul>
+  </div>
+</section>
+
+<section class="chapter cinema chapter-right" id="kapitel-2" aria-labelledby="k2">
+  <div class="chapter-copy">
+    <p class="eyebrow reveal">Kapitel 02</p>
+    <h2 class="split" data-split id="k2">Italienisches Eis aus Bella Germania.</h2>
+    <p class="reveal">Milcheis, Sorbets und vegane Kreationen nach italienischer Tradition — täglich frisch, mit echter Vanille, reifen Früchten und Zutaten aus der Region.</p>
+    <ul class="tags reveal" aria-label="Fakten"><li>Täglich frisch</li><li>Vegan &amp; laktosefrei</li><li>Regionale Zutaten</li></ul>
+  </div>
+</section>
+
+<section class="chapter cinema chapter-center" id="kapitel-3" aria-labelledby="k3">
+  <div class="chapter-copy">
+    <p class="eyebrow reveal">Kapitel 03</p>
+    <h2 class="split" data-split id="k3">Klappe auf. Feier an.</h2>
+    <p class="reveal">Sektempfang, belgische Waffeln, süßes Buffet — alles aus einer Hand, ganz nach deinem Geschmack und Budget.</p>
+    <p class="reveal"><a href="#anfrage" class="btn btn-primary magnetic">Unverbindlich anfragen</a></p>
+  </div>
+</section>
+
+<!-- ================= CATERING / ANLÄSSE ================= -->
+<section class="solid catering" id="catering" aria-labelledby="cateringTitle">
+  <div class="wrap catering-grid">
+    <figure class="catering-figure tilt" data-parallax="0.12">
+      <picture>
+        <source type="image/webp" srcset="assets/img/hochzeit-600.webp 600w, assets/img/hochzeit.webp 1200w" sizes="(max-width: 900px) 92vw, 44vw">
+        <img src="assets/img/hochzeit.jpg" srcset="assets/img/hochzeit-600.jpg 600w, assets/img/hochzeit.jpg 1200w" sizes="(max-width: 900px) 92vw, 44vw" width="1200" height="1500" alt="Der pastellfarbene VW-Bulli vor einem Standesamt, davor ein Tisch mit Sektgläsern und Eisbechern." loading="lazy" decoding="async">
+      </picture>
+      <figcaption>Eis &amp; Sekt — Helgas Hochzeitsduo</figcaption>
+    </figure>
+    <div class="catering-copy">
+      <p class="eyebrow reveal">Eiswagen-Catering</p>
+      <h2 class="split" data-split id="cateringTitle">Für jede Feier, die in süßer Erinnerung bleiben soll.</h2>
+      <p class="reveal">Ob Standesamt oder große Hochzeitsfeier, Firmenevent, Sommerfest, Jubiläum oder Kindergeburtstag: Der Bulli wird direkt an deiner Location platziert und verwöhnt deine Gäste überall — drinnen wie draußen.</p>
+      <ul class="event-list reveal">
+        <li><strong>Hochzeit &amp; Standesamt</strong><span>Sektempfang mit Prosecco, Sekt und alkoholfreien Alternativen, dazu Eiskreationen von klassisch bis vegan.</span></li>
+        <li><strong>Firmenfeier &amp; Betriebsfest</strong><span>Eiswagen, Waffeln und süßes Buffet für Teams jeder Größe — auf Wunsch mit Stehtischen im Streetfood-Stil.</span></li>
+        <li><strong>Sommerfest &amp; öffentliche Events</strong><span>Erfrischung für Jung bis Alt, direkt aus der Klappe des historischen Bullis.</span></li>
+        <li><strong>Geburtstag &amp; Kindergeburtstag</strong><span>Ausgefallene Sorten wie Waldmeister-Sorbet, Schoko-Duo oder grüner Apfel.</span></li>
+      </ul>
+      <p class="reveal"><a href="#anfrage" class="btn btn-primary magnetic">Angebot für meine Feier</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EIS-BAND ================= -->
+<section class="band" id="eisband" aria-label="Zitat">
+  <picture class="band-media" data-parallax="0.2">
+    <source type="image/webp" srcset="assets/img/cafe-theke.webp">
+    <source media="(max-width: 900px)" srcset="assets/img/cafe-theke-800.jpg">
+    <img src="assets/img/cafe-theke.jpg" width="1600" height="1200" alt="Die Eistheke bei Oma Helga in Bonn-Oberkassel mit frischen Eissorten." loading="lazy" decoding="async">
+  </picture>
+  <blockquote class="band-quote">
+    <p class="split" data-split>„Gutes Eis entsteht nicht durch Zufall. Es beginnt mit echten Zutaten und einem Herz für Menschen.“</p>
+    <cite class="reveal">Das Prinzip hinter jeder Kugel</cite>
+  </blockquote>
+</section>
+
+<!-- ================= ANGEBOT (3D-Galerie) ================= -->
+<section class="solid angebot" id="angebot" aria-labelledby="angebotTitle">
+  <div class="wrap section-head angebot-head">
+    <p class="eyebrow reveal">Was aus dem Bulli kommt</p>
+    <h2 class="split" data-split id="angebotTitle">Süßes Catering, ganz nach deinem Geschmack</h2>
+    <p class="lede reveal">Alles aus einer Hand: Eis, Waffeln, Crêpes, Kaffee, Kuchen und Sektempfang — kombiniere, was zu deiner Feier passt.</p>
+  </div>
+  <div class="gallery" id="gallery">
+    <div class="gallery-track" id="galleryTrack">
+
+      <article class="product">
+        <div class="product-media">
+          <picture>
+            <source type="image/webp" srcset="assets/img/eis-theke-600.webp 600w, assets/img/eis-theke.webp 1200w" sizes="(max-width: 900px) 74vw, 30vw">
+            <img src="assets/img/eis-theke.jpg" srcset="assets/img/eis-theke-600.jpg 600w, assets/img/eis-theke.jpg 1200w" sizes="(max-width: 900px) 74vw, 30vw" width="1200" height="1500" alt="Frische Eissorten in der Theke, darunter Pistazie und Erdbeere." loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="product-info">
+          <h3>Lieblingseis</h3>
+          <p>Milcheis, Joghurt-, Quark- und Sahneeis, Fruchtsorbets und vegane Sorten — Klassiker und moderne Neuheiten.</p>
+          <a href="#anfrage" class="link-more">Für meine Feier anfragen →</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-media">
+          <picture>
+            <source type="image/webp" srcset="assets/img/waffeln-600.webp 600w, assets/img/waffeln.webp 1200w" sizes="(max-width: 900px) 74vw, 30vw">
+            <img src="assets/img/waffeln.jpg" srcset="assets/img/waffeln-600.jpg 600w, assets/img/waffeln.jpg 1200w" sizes="(max-width: 900px) 74vw, 30vw" width="1200" height="1500" alt="Frisch gebackene Herzwaffeln mit Puderzucker." loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="product-info">
+          <h3>Belgische Waffeln</h3>
+          <p>Warm, knusprig, innen weich — pur mit Puderzucker, mit heißen Kirschen und Sahne oder mit Toppings nach Wahl.</p>
+          <a href="#anfrage" class="link-more">Für meine Feier anfragen →</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-media">
+          <picture>
+            <source type="image/webp" srcset="assets/img/crepes-600.webp 600w, assets/img/crepes.webp 1200w" sizes="(max-width: 900px) 74vw, 30vw">
+            <img src="assets/img/crepes.jpg" srcset="assets/img/crepes-600.jpg 600w, assets/img/crepes.jpg 1200w" sizes="(max-width: 900px) 74vw, 30vw" width="1200" height="1500" alt="Ein Crêpe wird auf der Platte gebacken." loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="product-info">
+          <h3>Crêpes</h3>
+          <p>Hauchdünn und frisch von der Platte — süß oder herzhaft, direkt vor den Augen deiner Gäste zubereitet.</p>
+          <a href="#anfrage" class="link-more">Für meine Feier anfragen →</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-media">
+          <picture>
+            <source type="image/webp" srcset="assets/img/waffel-herzhaft-600.webp 600w, assets/img/waffel-herzhaft.webp 1200w" sizes="(max-width: 900px) 74vw, 30vw">
+            <img src="assets/img/waffel-herzhaft.jpg" srcset="assets/img/waffel-herzhaft-600.jpg 600w, assets/img/waffel-herzhaft.jpg 1200w" sizes="(max-width: 900px) 74vw, 30vw" width="1200" height="1500" alt="Herzhaft belegte Waffel mit Feta, Tomate und Kräutern." loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="product-info">
+          <h3>Herzhaft &amp; Süßes Buffet</h3>
+          <p>Herzhafte Waffeln, Muffins und Kuchen wie bei Oma — die süße Ergänzung zum Eiswagen für jede Tageszeit.</p>
+          <a href="#anfrage" class="link-more">Für meine Feier anfragen →</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-media">
+          <picture>
+            <source type="image/webp" srcset="assets/img/spritz-600.webp 600w, assets/img/spritz.webp 1200w" sizes="(max-width: 900px) 74vw, 30vw">
+            <img src="assets/img/spritz.jpg" srcset="assets/img/spritz-600.jpg 600w, assets/img/spritz.jpg 1200w" sizes="(max-width: 900px) 74vw, 30vw" width="1200" height="1500" alt="Ein Spritz-Glas in der Hand eines Gastes." loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="product-info">
+          <h3>Sektempfang</h3>
+          <p>Prosecco, Sekt und alkoholfreie Alternativen — das prickelnde Duo zum Eis für Standesamt und Hochzeitslocation.</p>
+          <a href="#anfrage" class="link-more">Für meine Feier anfragen →</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-media">
+          <picture>
+            <source type="image/webp" srcset="assets/img/service-600.webp 600w, assets/img/service.webp 1200w" sizes="(max-width: 900px) 74vw, 30vw">
+            <img src="assets/img/service.jpg" srcset="assets/img/service-600.jpg 600w, assets/img/service.jpg 1200w" sizes="(max-width: 900px) 74vw, 30vw" width="1200" height="1500" alt="Zwei Eisbecher werden auf einem Tablett serviert." loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="product-info">
+          <h3>Kaffee &amp; Kuchen</h3>
+          <p>Kaffee von kleinen Röstereien aus der Region und hausgemachte Kuchen — auch als Genuss-Gesamtpaket mit Sitzgelegenheiten.</p>
+          <a href="#anfrage" class="link-more">Für meine Feier anfragen →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+  <p class="gallery-hint wrap">Scrollen oder wischen, um durch das Angebot zu gleiten</p>
+</section>
+
+<!-- ================= WARUM OMA HELGA ================= -->
+<section class="solid warum" id="warum" aria-labelledby="warumTitle">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow reveal">Warum Oma Helga</p>
+      <h2 class="split" data-split id="warumTitle">Fünf gute Gründe</h2>
+    </div>
+    <dl class="promises">
+      <div class="promise reveal"><dt>Individuelles Angebot</dt><dd>Wir passen Sortiment, Menge und Ablauf genau an deine Wünsche, deine Gästezahl und dein Budget an.</dd></div>
+      <div class="promise reveal"><dt>An jedem Ort</dt><dd>Der Bulli ist mobil und steht direkt an Standesamt, Location, Firmengelände oder Festplatz — drinnen wie draußen.</dd></div>
+      <div class="promise reveal"><dt>Von Profis, für Liebhaber</dt><dd>Große Auswahl an Eissorten, süßen Buffet-Optionen und Sektempfangs-Ideen — seit den 90ern mit Herz gemacht.</dd></div>
+      <div class="promise reveal"><dt>Nachhaltig genießen</dt><dd>Regionale, saisonale Zutaten, Papierlöffel und Papierschalen statt Plastik — und ein Eiswagen, der selbst ein Stück Upcycling ist.</dd></div>
+      <div class="promise reveal"><dt>Für jeden Geschmack</dt><dd>Vegane und laktosefreie Sorten gehören fest dazu — same Geschmack, no Kompromiss.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ================= EISDIELE ================= -->
+<section class="solid eisdiele" id="eisdiele" aria-labelledby="eisdieleTitle">
+  <div class="wrap eisdiele-grid">
+    <div class="eisdiele-copy">
+      <p class="eyebrow reveal">Eisdiele &amp; Café · Bonn-Oberkassel</p>
+      <h2 class="split" data-split id="eisdieleTitle">Dein Lieblingsplatz am Rhein</h2>
+      <p class="reveal">Was in den 90ern in einem kleinen Eiscafé in der Bonner Altstadt begann, ist heute in Oberkassel zu Hause — mit mehr Sorten, mehr Ideen und noch mehr Liebe zum Detail. Draußen auf der sonnigen Terrasse oder drinnen im Retro-Ambiente.</p>
+      <div class="hours reveal">
+        <div>
+          <h3>Adresse</h3>
+          <p>Oma Helga – Eisdiele &amp; Café<br>Königswinterer Straße 628<br>53227 Bonn</p>
+          <p><a class="link-more" href="https://maps.google.com/?q=K%C3%B6nigswinterer+Stra%C3%9Fe+628%2C+53227+Bonn" target="_blank" rel="noopener noreferrer">Route planen →</a></p>
+        </div>
+        <div>
+          <h3>Öffnungszeiten</h3>
+          <table class="hours-table">
+            <tr><td>Montag</td><td>Ruhetag</td></tr>
+            <tr><td>Di – Do</td><td>11:00 – 18:00 Uhr</td></tr>
+            <tr><td>Fr – So</td><td>11:00 – 19:00 Uhr</td></tr>
+          </table>
+        </div>
+      </div>
+      <ul class="tags reveal" aria-label="Im Café"><li>CoWorking mit Eis</li><li>Kindergeburtstag</li><li>Waffeltag</li><li>Bingo-Abend</li><li>Eis &amp; Spritz</li></ul>
+    </div>
+    <div class="eisdiele-figures">
+      <figure class="tilt" data-parallax="0.1">
+        <picture>
+          <source type="image/webp" srcset="assets/img/cafe-gaeste-600.webp 600w, assets/img/cafe-gaeste.webp 1200w" sizes="(max-width: 900px) 46vw, 22vw">
+          <img src="assets/img/cafe-gaeste.jpg" srcset="assets/img/cafe-gaeste-600.jpg 600w, assets/img/cafe-gaeste.jpg 1200w" sizes="(max-width: 900px) 46vw, 22vw" width="1200" height="1500" alt="Gäste vor dem Café, im Hintergrund die Getränkekarte." loading="lazy" decoding="async">
+        </picture>
+      </figure>
+      <figure class="tilt" data-parallax="0.16">
+        <picture>
+          <source type="image/webp" srcset="assets/img/team-600.webp 600w, assets/img/team.webp 1200w" sizes="(max-width: 900px) 46vw, 22vw">
+          <img src="assets/img/team.jpg" srcset="assets/img/team-600.jpg 600w, assets/img/team.jpg 1200w" sizes="(max-width: 900px) 46vw, 22vw" width="1200" height="1500" alt="Das Team im Café hinter der Theke." loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EINSATZGEBIET ================= -->
+<section class="solid region" id="region" aria-labelledby="regionTitle">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow reveal">Hier sind wir unterwegs</p>
+      <h2 class="split" data-split id="regionTitle">Von Bonn bis Düsseldorf</h2>
+      <p class="lede reveal">Eiswagen mieten und Eis-Catering rund um Köln, Bonn und Koblenz — und auf Anfrage darüber hinaus.</p>
+    </div>
+    <ul class="region-list reveal">
+      <li>Bonn</li><li>Köln</li><li>Koblenz</li><li>Königswinter</li><li>Siegburg</li><li>Leverkusen</li><li>Neuwied</li><li>Düsseldorf</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="solid faq" id="faq" aria-labelledby="faqTitle">
+  <div class="wrap faq-grid">
+    <div class="section-head">
+      <p class="eyebrow reveal">Häufige Fragen</p>
+      <h2 class="split" data-split id="faqTitle">Gut zu wissen</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal"><summary>Welche Sorten habt ihr im Angebot?</summary><p>Unsere Eissorten wechseln je nach Saison — Klassiker wie Vanille, Schoko und Erdbeere gibt es fast immer. Vegane und laktosefreie Sorten sind fester Bestandteil des Sortiments.</p></details>
+      <details class="faq-item reveal"><summary>Gibt es bei euch veganes Eis?</summary><p>Ja! Regelmäßig mehrere vegane Sorten — fruchtige Sorbets oder cremige Varianten auf Pflanzenbasis.</p></details>
+      <details class="faq-item reveal"><summary>Was kann ich zum Eiswagen dazubuchen?</summary><p>Belgische Waffeln, Muffins und Kuchen, einen Sektempfang sowie Sitzgelegenheiten und Stehtische im Streetfood-Stil — auf Wunsch als Genuss-Gesamtpaket.</p></details>
+      <details class="faq-item reveal"><summary>Wo seid ihr unterwegs?</summary><p>Rund um Bonn, Köln, Koblenz, Königswinter, Siegburg, Leverkusen, Neuwied und Düsseldorf — frag einfach an, wenn dein Ort nicht dabei ist.</p></details>
+      <details class="faq-item reveal"><summary>Kann ich Eis auch mitnehmen?</summary><p>Na klar. Unsere Becher sind umweltfreundlich und perfekt für unterwegs — im Park, am Rhein oder auf dem Sofa.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ANFRAGE ================= -->
+<section class="solid anfrage" id="anfrage" aria-labelledby="anfrageTitle">
+  <div class="wrap anfrage-grid">
+    <div class="anfrage-copy">
+      <p class="eyebrow reveal">Unverbindliche Catering-Anfrage</p>
+      <h2 class="split" data-split id="anfrageTitle">Oma Helga freut sich über jeden Brief.</h2>
+      <p class="reveal">Verrate uns, was du feiern möchtest — wir melden uns mit einem Angebot, das zu deinem Tag passt.</p>
+      <p class="reveal anfrage-direct">Lieber direkt? <a href="tel:+4915119321967">0151 19321967</a> · <a href="tel:+4922449089766">02244 9089766</a> · <a href="mailto:info@omahelga.de">info@omahelga.de</a></p>
+    </div>
+    <form class="anfrage-form reveal" id="anfrageForm" novalidate>
+      <div class="field-row">
+        <label>Anrede<select name="anrede"><option value="">– Bitte auswählen –</option><option>Frau</option><option>Herr</option><option>Divers</option></select></label>
+        <label>Name*<input type="text" name="name" autocomplete="name" required></label>
+      </div>
+      <div class="field-row">
+        <label>E-Mail*<input type="email" name="email" autocomplete="email" required></label>
+        <label>Telefon<input type="tel" name="telefon" autocomplete="tel"></label>
+      </div>
+      <div class="field-row">
+        <label>Datum der Veranstaltung<input type="date" name="datum"></label>
+        <label>Anlass<select name="anlass"><option>Hochzeit / Standesamt</option><option>Firmenfeier</option><option>Sommerfest / öffentliches Event</option><option>Geburtstag / Kindergeburtstag</option><option>Jubiläum</option><option>Weihnachtsfeier</option><option>Sonstiges</option></select></label>
+      </div>
+      <div class="field-row">
+        <label>Gästezahl<input type="number" name="gaeste" min="1" inputmode="numeric"></label>
+        <label>Ort der Veranstaltung<input type="text" name="ort" autocomplete="address-level2"></label>
+      </div>
+      <label>Deine Wünsche<textarea name="nachricht" rows="4" placeholder="Eis, Waffeln, Sektempfang … was darf’s sein?"></textarea></label>
+      <label class="check"><input type="checkbox" name="datenschutz" required><span>Ich bin mit den <a href="https://omahelga.de/agb/" target="_blank" rel="noopener noreferrer">AGB</a> und den <a href="https://omahelga.de/datenschutz/" target="_blank" rel="noopener noreferrer">Datenschutzbestimmungen</a> einverstanden.*</span></label>
+      <button type="submit" class="btn btn-primary anfrage-submit">Anfrage senden</button>
+      <p class="fineprint" id="anfrageNote" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer" id="kontakt">
+  <p class="footer-giant" aria-hidden="true">Oma Helga</p>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="assets/img/oh-logo.png" alt="Oma Helga" class="footer-logo" width="682" height="681">
+      <p class="footer-slogan">Eiswagen-Catering &amp; Eiswagen mieten · Eisdiele in Bonn-Oberkassel</p>
+      <p class="footer-place">Topic GmbH · Business &amp; Event Catering · Hüscheider Weg 90 · 53639 Königswinter</p>
+    </div>
+    <nav class="footer-links" aria-label="Fußzeile">
+      <div>
+        <h4>Kontakt</h4>
+        <a href="tel:+4915119321967">0151 19321967</a>
+        <a href="tel:+4922449089766">02244 9089766</a>
+        <a href="mailto:info@omahelga.de">info@omahelga.de</a>
+      </div>
+      <div>
+        <h4>Eisdiele</h4>
+        <a href="#eisdiele">Königswinterer Str. 628, Bonn</a>
+        <a href="#eisdiele">Öffnungszeiten</a>
+        <a href="#faq">Häufige Fragen</a>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <a href="https://omahelga.de/impressum/" target="_blank" rel="noopener noreferrer">Impressum</a>
+        <a href="https://omahelga.de/datenschutz/" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+        <a href="https://omahelga.de/agb/" target="_blank" rel="noopener noreferrer">AGB</a>
+      </div>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>&copy; <span id="year">2026</span> Oma Helga · Topic GmbH</p>
+    <p class="footer-note">Konzept-Vorschau — Gestaltungsvorschlag, nicht die offizielle Website. Diese Vorschau setzt keine Cookies und lädt nichts von Drittanbietern.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
+<script src="main.js" defer></script>
+<script type="module" src="scene.js"></script>
+</body>
+</html>
